@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "hm_dataset.txt"
+            argument = "example.txt"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
