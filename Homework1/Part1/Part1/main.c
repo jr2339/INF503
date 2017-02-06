@@ -13,10 +13,9 @@
 
 // Function at here to Calcuate the total size we need to reserved.
 //At here, i will give a little bigger than we calculated
-int count_size(const char* filename){
-    int size;
-    int col = 0;
-    int line = 0;
+int count_row(const char* filename){
+    int size =0;
+    int row = 0;
     
     
     
@@ -42,23 +41,63 @@ int count_size(const char* filename){
             break;
         }
        
-        col++;
+        size++;
         if (ch == '\n') {
-            line++;
+            row++;
         }
     }
-    size = (line +1)*col;
-    return size;
+
+    
+    return row;
+    
+};
+
+int count_col(const char* filename){
+    int size =0;
+    int row = 0;
+    
+    
+    
+    FILE *fp = fopen(filename, "r");
+    
+    if (!fp) {
+        fprintf(stderr, "can't open file for reading\n");
+        exit(1);
+    }
+    
+    while(1){
+        
+        int ch = getc(fp);
+        while (ch == '>') {
+            do{
+                ch = getc(fp);
+            }
+            while (ch!='\n');
+            ch = getc(fp);
+        }
+        
+        if (feof(fp)) {
+            break;
+        }
+        
+        size++;
+        if (ch == '\n') {
+            row++;
+        }
+    }
+    
+    int col = size/row;
+    
+    return col;
     
 };
 
 
+//A[i][j] = *(A[i]+j) = *(*(A+i)+j)
 
-
-
-int skip_header(const char* filename,char* buffer){
-    int count = 0;
-    int line = 0;
+void skip_header(const char* filename,char* buffer){
+    int size = 0;
+    int row = 0;
     
   
     
@@ -84,58 +123,50 @@ int skip_header(const char* filename,char* buffer){
             break;
         }
         //save the character to buffer
-        buffer[count] = ch;
-        count++;
+        buffer[size] = ch;
+        size++;
         if (ch == '\n') {
-            line++;
+            row++;
         }
     }
 
-    
-    printf("line is %d\n",line);
+
     
     fclose(fp);
-    return line;
+
    
 }
 
 
-
-void merge_sort(const char* filename,char* buffer,char** result){
-    int line = skip_header(filename,buffer);
-    char** left;
-    char** right;
-    printf("HAHAHAHAHAHAHAHAHA\n");
-    for (int i=0; i<line/2+1; i++) {
-        **left = **result;
-        left++;
-        result++;
-    }
-     printf("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\n");
-    for (int j=0; j<line/2; j++) {
-        right[j] = result[line/2+j+1];
-    }
-    
-    printf("%s\n",*left);
-    
-    printf("=============================================================\n");
-    printf("%s\n",*right);
-    
-    printf("=============================================================\n");
-}
-
-void sort_file(const char* filename,char* buffer,char** result){
-    
+//A[i][j] = *(A[i]+j) = *(*(A+i)+j)
+void sort_file(const char* filename,char* buffer,int column,int row,int size){
    
-    merge_sort(filename,buffer,result);
-
+    //char *sorted_array = no_header_array;
     
-
+    char temp[column];
+    for (int i=0; i<row; i++) {
+        if (buffer[i*column] > buffer[(i+1)*column]) {
+            for (int j=0; j<column; j++) {
+                temp[j] =buffer[i*column+j];
+                buffer[i*column+j]=buffer[(i+1)*column+j];
+                buffer[(i+1)*column+j] = temp[j];
+            }
+        }
+  
     
-    
-    
-    
+    }
 }
+  
+
+    
+
+    
+
+    
+    
+    
+
+
 
 
 
@@ -151,20 +182,31 @@ int main(int argc, const char * argv[]) {
     }
    
     const char *input = argv[1]; // input file
-    
-    int size = count_size(input);
+    int row =count_row(input);
+    int col =count_col(input);
+    int size = row * col;
+    printf("the row is %d,the col is %d, the size is %d\n",row,col,size);
     
     char* buffer = (char*)malloc(size*sizeof(char));
     
-    char** result;
-    result = &buffer;
 
-    sort_file(input,buffer,result);
+
     
-    //printf("%s\n",*result);
+    //char* no_header_array;
+    //no_header_array = buffer;
     
-    //printf("=============================================================\n");
+    skip_header(input,buffer);
     
+    printf("%s\n",buffer);
+    printf("%c\n",buffer[0]);
+    printf("%c\n",buffer[1*col]);
+    printf("%c\n",buffer[2*col]);
+    
+    
+    sort_file(input,buffer,col,row,size);
+    
+
+     printf("%s\n",buffer);
 
     
     free(buffer);
