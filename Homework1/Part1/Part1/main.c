@@ -144,7 +144,8 @@ void sort_file(const char* filename,char* buffer,int column,int row,int size){
     //char *sorted_array = no_header_array;
     
     char temp[column];
-    for (int i=0; i<row; i++) {
+    
+    for (int i=0; i<row-1; i++) {
         if (buffer[i*column] > buffer[(i+1)*column]) {
             for (int j=0; j<column; j++) {
                 temp[j] =buffer[i*column+j];
@@ -155,16 +156,34 @@ void sort_file(const char* filename,char* buffer,int column,int row,int size){
   
     
     }
+    /*
+    for (int i=0; i<column; i++) {
+        for (int j=0; j< row-1; j++) {
+            if (buffer[j*column+i] > buffer[(j+1)*column+i]) {
+                for (int m=0; m<column; m++) {
+                    temp[m] =buffer[j*column+m];
+                    buffer[j*column+m]=buffer[(j+1)*column+m];
+                    buffer[(j+1)*column+m] = temp[m];
+                }
+
+            }
+        }
+    }*/
+    printf("============================================================\n");
+    printf("%s\n",buffer);
+
+ 
+
 }
-  
 
-    
 
-    
 
-    
-    
-    
+
+
+
+
+
+
 
 
 
@@ -190,10 +209,6 @@ int main(int argc, const char * argv[]) {
     char* buffer = (char*)malloc(size*sizeof(char));
     
 
-
-    
-    //char* no_header_array;
-    //no_header_array = buffer;
     
     skip_header(input,buffer);
     
@@ -205,8 +220,8 @@ int main(int argc, const char * argv[]) {
     
     sort_file(input,buffer,col,row,size);
     
-
-     printf("%s\n",buffer);
+   
+    
 
     
     free(buffer);
