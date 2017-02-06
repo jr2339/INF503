@@ -139,40 +139,27 @@ void skip_header(const char* filename,char* buffer){
 
 
 //A[i][j] = *(A[i]+j) = *(*(A+i)+j)
-void sort_file(const char* filename,char* buffer,int column,int row,int size){
-   
-    //char *sorted_array = no_header_array;
-    
+void sort_file(const char* filename,char* buffer,int column,int row){
+    char str1[column];
+    char str2[column];
     char temp[column];
-    
-    for (int i=0; i<row-1; i++) {
-        if (buffer[i*column] > buffer[(i+1)*column]) {
-            for (int j=0; j<column; j++) {
-                temp[j] =buffer[i*column+j];
-                buffer[i*column+j]=buffer[(i+1)*column+j];
-                buffer[(i+1)*column+j] = temp[j];
+    for (int i=0; i<row-1; ++i) {
+        for (int j = i+1; j<row; ++j) {
+            for (int col=0; col<column; col++) {
+                str1[col] = buffer[i*column+col];
+                str2[col] = buffer[j*column+col];
             }
-        }
-  
-    
-    }
-    /*
-    for (int i=0; i<column; i++) {
-        for (int j=0; j< row-1; j++) {
-            if (buffer[j*column+i] > buffer[(j+1)*column+i]) {
+            if ((strcmp(str1, str2)>0)) { //str2 less than str1
                 for (int m=0; m<column; m++) {
-                    temp[m] =buffer[j*column+m];
-                    buffer[j*column+m]=buffer[(j+1)*column+m];
-                    buffer[(j+1)*column+m] = temp[m];
+                    temp[m] = buffer[i*column+m];
+                    buffer[i*column+m] = buffer[j*column+m];
+                    buffer[j*column+m] = temp[m];
                 }
-
             }
         }
-    }*/
-    printf("============================================================\n");
-    printf("%s\n",buffer);
-
- 
+    }
+     printf("============================================================\n");
+     printf("%s\n",buffer);
 
 }
 
@@ -213,12 +200,10 @@ int main(int argc, const char * argv[]) {
     skip_header(input,buffer);
     
     printf("%s\n",buffer);
-    printf("%c\n",buffer[0]);
-    printf("%c\n",buffer[1*col]);
-    printf("%c\n",buffer[2*col]);
+
     
     
-    sort_file(input,buffer,col,row,size);
+    sort_file(input,buffer,col,row);
     
    
     
