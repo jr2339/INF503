@@ -12,17 +12,23 @@
 #include <string.h>
 
 
+int count_row(const char* filename);
+int count_col(const char* filename);
+void skip_header(const char* filename,char* buffer);
+void printList(int column);
+void LinkedList(char* buffer,int row,int column);
+void sort(int row,int column);
+
+
 
 //let's define a linked list node
 struct node {
-    char val[100];
+    char* val;
     struct node * next;
 };
 
 //create global node
 struct node *head = NULL;
-
-
 
 // Function at here to Calcuate the total size we need to reserved.
 //At here, i will give a little bigger than we calculated
@@ -106,7 +112,6 @@ int count_col(const char* filename){
 };
 
 
-//A[i][j] = *(A[i]+j) = *(*(A+i)+j)
 
 void skip_header(const char* filename,char* buffer){
     int size = 0;
@@ -123,7 +128,7 @@ void skip_header(const char* filename,char* buffer){
     
     while(1){
         //skip the headers
-        int ch = getc(fp);
+        char ch = getc(fp);
         while (ch == '>') {
             do{
                 ch = getc(fp);
@@ -150,12 +155,15 @@ void skip_header(const char* filename,char* buffer){
     
 }
 
+
 //display the list
+
 void printList(int column) {
     struct node *current = head;
     
-    
+
     //start from the beginning
+    
     while(current != NULL) {
         for (int i=0; i<column; i++) {
             printf("%c",current->val[i]);
@@ -168,15 +176,20 @@ void printList(int column) {
 }
 
 //add the DNA Sequence to the linked list
-void Insert_To_LinkedList(char* buffer,int row,int column){
+void LinkedList(char* buffer,int row,int column){
+    
     for (int i=0; i<row; i++) {
         //create a link
+        
         struct node *link = (struct node*) malloc(sizeof(struct node));
-        for (int j=0; j<column; j++) {
-            link->val[j] = buffer[(row-i-1)*column+j];
-        }
+        link->val = malloc(column*sizeof(char));
+
+        strncpy(link->val, buffer,column);
+        buffer += column;
+
         link->next = head;
         head = link;
+
     }
 
 }
@@ -208,7 +221,7 @@ void sort(int row,int column){
     }
 }
 
-
+//
 
 
 int main(int argc, const char * argv[]) {
@@ -238,8 +251,7 @@ int main(int argc, const char * argv[]) {
     printf("%s\n",buffer);
     printf("====================================================\n");
     
-   
-    Insert_To_LinkedList(buffer,row,col);
+    LinkedList(buffer,row,col);
     sort(row, col);
     printList(col);
 
