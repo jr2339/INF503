@@ -221,7 +221,19 @@ void sort(int row,int column){
     }
 }
 
-//
+//free Linked List
+void free_LinkedList(struct node** head_pointer){
+    //deference head_pointer to get the head
+    struct node *current = *head_pointer; // means current = header
+    struct node* next;
+    
+    while (current != NULL) {
+        next= current->next;
+        free(current);
+        current = next;
+    }
+    *head_pointer = NULL;
+}
 
 
 int main(int argc, const char * argv[]) {
@@ -255,7 +267,9 @@ int main(int argc, const char * argv[]) {
     sort(row, col);
     printList(col);
 
-    
+    free_LinkedList(&head);
+    printf("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+    printList(col);
     free(buffer);
 
     return 0;

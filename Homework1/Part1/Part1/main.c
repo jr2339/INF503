@@ -204,9 +204,6 @@ int main(int argc, const char * argv[]) {
     
     
     sort_file(input,buffer,col,row);
-    
-   
-    
 
     
     free(buffer);
