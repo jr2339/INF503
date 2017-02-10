@@ -14,7 +14,7 @@
 
 int count_row(const char* filename);
 int count_col(const char* filename);
-void skip_header(const char* filename,char* buffer);
+void skip_header(const char* filename,char* buffer,int row);
 void printList(int column);
 void LinkedList(char* buffer,int row,int column);
 void sort(int row,int column);
@@ -113,9 +113,9 @@ int count_col(const char* filename){
 
 
 
-void skip_header(const char* filename,char* buffer){
+void skip_header(const char* filename,char* buffer, int row){
     int size = 0;
-    int row = 0;
+    int i = 0;
     
     
     
@@ -126,7 +126,7 @@ void skip_header(const char* filename,char* buffer){
         exit(1);
     }
     
-    while(1){
+    while(i<row){
         //skip the headers
         char ch = getc(fp);
         while (ch == '>') {
@@ -144,12 +144,11 @@ void skip_header(const char* filename,char* buffer){
         buffer[size] = ch;
         size++;
         if (ch == '\n') {
-            row++;
+            i++;
         }
     }
     
-    
-    
+
     fclose(fp);
     
     
@@ -258,7 +257,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-    skip_header(input,buffer);
+    skip_header(input,buffer,row);
     
     printf("%s\n",buffer);
     printf("====================================================\n");

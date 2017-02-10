@@ -95,9 +95,9 @@ int count_col(const char* filename){
 
 //A[i][j] = *(A[i]+j) = *(*(A+i)+j)
 
-void skip_header(const char* filename,char* buffer){
+void skip_header(const char* filename,char* buffer,int row){
     int size = 0;
-    int row = 0;
+    int i = 0;
     
   
     
@@ -108,7 +108,7 @@ void skip_header(const char* filename,char* buffer){
         exit(1);
     }
     
-    while(1){
+    while(i<row){
         //skip the headers
         int ch = getc(fp);
         while (ch == '>') {
@@ -126,7 +126,7 @@ void skip_header(const char* filename,char* buffer){
         buffer[size] = ch;
         size++;
         if (ch == '\n') {
-            row++;
+            i++;
         }
     }
 
@@ -143,8 +143,8 @@ void sort_file(const char* filename,char* buffer,int column,int row){
     char str1[column];
     char str2[column];
     char temp[column];
-    for (int i=0; i<row-1; ++i) {
-        for (int j = i+1; j<row; ++j) {
+    for (int i=0; i<row-1; i++) {
+        for (int j = i+1; j<row; j++) {
             for (int col=0; col<column; col++) {
                 str1[col] = buffer[i*column+col];
                 str2[col] = buffer[j*column+col];
@@ -188,18 +188,19 @@ int main(int argc, const char * argv[]) {
     }
    
     const char *input = argv[1]; // input file
-    int row =count_row(input);
+    //int row =count_row(input);
+    int row =100;
     int col =count_col(input);
     int size = row * col;
-    printf("the row is %d,the col is %d, the size is %d\n",row,col,size);
+    //printf("the row is %d,the col is %d, the size is %d\n",row,col,size);
     
     char* buffer = (char*)malloc(size*sizeof(char));
     
 
     
-    skip_header(input,buffer);
+    skip_header(input,buffer,row);
     
-    printf("%s\n",buffer);
+    //printf("%s\n",buffer);
 
     
     
