@@ -37,8 +37,8 @@ struct HashTb{
 HashTable InitializeTable(int Tablesize);
 int HashIndex(long key);
 Position Find_Position(long key,HashTable H);
-void Insert(long key, HashTable H);
-void insertToHashtable(long* sequenceNumber,HashTable H);
-void display(int count,HashTable H);
+HashTable Insert(long* sequenceNumber, HashTable H);
+
+void display(HashTable H);
 
 #endif /* hashTable_h */

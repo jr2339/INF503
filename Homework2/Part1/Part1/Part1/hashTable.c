@@ -43,32 +43,41 @@ Position Find_Position(long key,HashTable H){
     return L;
 }
 
-void Insert(long key, HashTable H){
-    if (Find_Position(key, H)== NULL) {
-        int index = HashIndex(key);
-        List L = (List)malloc(sizeof(struct ListNode));
-        L->element = key;
-        Position P = H->TheList[index];
-        L->Next = P->Next;
-        P->Next = L;
-    }
-
-}
-
-
-void insertToHashtable(long* sequenceNumber,HashTable H){
-    for (int i= 0; i<HashArraSize;i++) {
-        printf("===================%ld\n",sequenceNumber[i]);
-        Insert(sequenceNumber[i],H);
-    }
-   
-}
-
-/*
-void display(int count,HashTable H){
+HashTable Insert(long* sequenceNumber, HashTable H){
     for (int i=0; i<HashArraSize; i++) {
-        //printf("in %d, we have %lu\n",);
+        //printf("===================%ld\n",sequenceNumber[i]);
+        if (Find_Position(sequenceNumber[i], H)== NULL) {
+            int index = HashIndex(sequenceNumber[i]);
+            List L = (List)malloc(sizeof(struct ListNode));
+            L->element = sequenceNumber[i];
+            Position P = H->TheList[index];
+            L->Next = P->Next;
+            P->Next = L;
+        }
     }
+    return H;
+
 }
 
- */
+
+
+
+void display(HashTable H){
+    for (int i=0; i<HashArraSize; i++) {
+        List L = H->TheList[i]->Next;
+
+        if (L == NULL) {
+            printf("\nData at index %d in Hash Table:\n",i);
+            printf("\nSequence number is NULL\n");
+            printf("--------------------------------\n");
+        }
+        else{
+            do{
+                printf("\nData at index %d in Hash Table:\n",i);
+                printf("\nSequence number is %ld\n",L->element);
+                printf("--------------------------------\n");
+                L=L->Next;
+            }while(L != NULL);
+        }
+    }
+}

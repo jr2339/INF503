@@ -18,11 +18,11 @@
 
 
 int main(int argc, const char * argv[]) {
-    
+    //int count =0;
     HashTable H = InitializeTable(HashArraSize);
     long* sequence_number = sequence_to_number();
-    
-    insertToHashtable(sequence_number,H);
+    H = Insert(sequence_number, H);
+    display(H);
    
     return 0;
 }
