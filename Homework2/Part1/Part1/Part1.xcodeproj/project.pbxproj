@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F671C3061E4FA76400EDE258 /* sequence.c in Sources */ = {isa = PBXBuildFile; fileRef = F671C3041E4FA76400EDE258 /* sequence.c */; };
+		F671C3091E4FA78600EDE258 /* hashTable.c in Sources */ = {isa = PBXBuildFile; fileRef = F671C3071E4FA78600EDE258 /* hashTable.c */; };
 		F6A9742B1E4E72E200DA17DD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F6A9742A1E4E72E200DA17DD /* main.c */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F671C3041E4FA76400EDE258 /* sequence.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sequence.c; sourceTree = "<group>"; };
+		F671C3051E4FA76400EDE258 /* sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequence.h; sourceTree = "<group>"; };
+		F671C3071E4FA78600EDE258 /* hashTable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hashTable.c; sourceTree = "<group>"; };
+		F671C3081E4FA78600EDE258 /* hashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashTable.h; sourceTree = "<group>"; };
 		F6A974271E4E72E200DA17DD /* Part1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Part1; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A9742A1E4E72E200DA17DD /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				F6A9742A1E4E72E200DA17DD /* main.c */,
+				F671C3041E4FA76400EDE258 /* sequence.c */,
+				F671C3051E4FA76400EDE258 /* sequence.h */,
+				F671C3071E4FA78600EDE258 /* hashTable.c */,
+				F671C3081E4FA78600EDE258 /* hashTable.h */,
 			);
 			path = Part1;
 			sourceTree = "<group>";
@@ -119,6 +129,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F671C3091E4FA78600EDE258 /* hashTable.c in Sources */,
+				F671C3061E4FA76400EDE258 /* sequence.c in Sources */,
 				F6A9742B1E4E72E200DA17DD /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +258,7 @@
 				F6A974301E4E72E200DA17DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
