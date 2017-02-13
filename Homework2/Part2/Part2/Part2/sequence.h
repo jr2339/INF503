@@ -10,9 +10,12 @@
 #define sequence_h
 
 #include <stdio.h>
-char* generate_sequence(int input);
+#include <stdlib.h>
+#include <string.h>
+#include "math.h"
 
 
+void generate_sequence(char str[], char new_str[], int current_len, int n, int len);
 
 
 

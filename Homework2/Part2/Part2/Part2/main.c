@@ -8,8 +8,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "sequence.h"
 
 int main(int argc, const char * argv[]) {
+    /*
     if (argc < 2) {
         perror("We need more arguments");
         exit(1);
@@ -17,9 +19,15 @@ int main(int argc, const char * argv[]) {
     else if(argc > 2){
         perror("Too many arguments");
     }
-    int n = atoi(argv[1]);
-    char* sequence = generate_sequence(n);
+    long n = atoi(argv[1]);
+    long size = pow(4, n);
+    char** sequence =(char**)malloc(size*sizeof(char*));
     
+    sequence = generate_sequence(n);
+    */
+    char set[]={'A','C','G','T'};
+    char arr[100]="";
+    generate_sequence(set, arr, 0, 4, 10);
    
     return 0;
 }
