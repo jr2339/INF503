@@ -259,8 +259,8 @@ int main(int argc, const char * argv[]) {
     
     skip_header(input,buffer,row);
     
-    printf("%s\n",buffer);
-    printf("====================================================\n");
+    //printf("%s\n",buffer);
+    //printf("====================================================\n");
     
     LinkedList(buffer,row,col);
     sort(row, col);
