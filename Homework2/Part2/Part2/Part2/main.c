@@ -16,22 +16,25 @@ int main(int argc, char **argv)
     
     long DNA_Sequence_Number_Size = pow(4, column);
     
-    //printf("%ld\n",DNA_Sequence_Number_Size);
-    
-    //int bit_array_size = pow(4, (column-2));
+   
     
     long* DNA_Sequence_Number= malloc(DNA_Sequence_Number_Size*sizeof(long));
     
     DNA_Sequence_Number = gen_all_sequences(column,DNA_Sequence_Number);
-    /*
-    for (int i=0; i<DNA_Sequence_Number_Size; i++) {
-        DNA_Sequence_Number--;
-    }
-     */
+  
     
     for (int i=0; i<DNA_Sequence_Number_Size; i++) {
         printf("%ld\n",DNA_Sequence_Number[i]);
     }
-     
+    
+    int bit_Array_size = (int) (DNA_Sequence_Number_Size/8);
+   
+    char bitArray[bit_Array_size];
+    
+    bitArray_init(bitArray, bit_Array_size);
+    /*
+    for (int i=0; i<bit_Array_size; i++) {
+        printf("%d in bit array is %c\n",i,bitArray[i]);
+    }*/
     return 0;
 }

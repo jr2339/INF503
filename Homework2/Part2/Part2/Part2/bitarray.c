@@ -8,7 +8,9 @@
 
 #include "bitarray.h"
 
-
+void bitArray_init(char* array,int array_size){
+    memset(array, 0, array_size);
+}
 
 
 

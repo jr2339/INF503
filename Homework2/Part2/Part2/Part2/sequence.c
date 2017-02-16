@@ -20,7 +20,7 @@ void number_to_Alphbet(int *a, int n, int j, int index,long* Sequence_Number,cha
     //sprintf(rdix, "%ld", DNA_Radix);
     //convert number to 'ACGT'
     for (int k=0; k<4*n; k+=4) {
-        //printf("%c",*(buffer+k));
+        printf("%c",*(buffer+k));
         if (*(buffer+k)=='0') {
             *(sequence[j]+(k/4)) ='A';
         }
@@ -48,8 +48,7 @@ void number_to_Alphbet(int *a, int n, int j, int index,long* Sequence_Number,cha
 long* gen_all_sequences(int col,long* Sequence_Number){
     /*We have 'ACGT, whcih size is 4*/
   
-    //long DNA_Sequence_Number_Size = pow(4, col);
-    //Sequence_Number = malloc(DNA_Sequence_Number_Size*sizeof(long));
+    
     int index_Sequence_Number = 0;
     int base_size =4;
     long row = pow(base_size,col);
@@ -62,10 +61,11 @@ long* gen_all_sequences(int col,long* Sequence_Number){
     
     int *a;
     //parameter check
-    /*
+    
     if(base_size < 2 || col < 1){
-        return;
-    }*/
+        fprintf(stderr,"base_size need more than 2 and column size need more than or equal 1\n");
+        exit(1);
+    }
     //base_size = max digit value
     base_size -= 1;
     

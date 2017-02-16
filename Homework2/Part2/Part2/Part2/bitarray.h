@@ -16,7 +16,7 @@
 #include "sequence.h"
 
 
-
+void bitArray_init(char* array,int array_size);
 
 
 
