@@ -13,4 +13,18 @@ void bitArray_init(char* array,int array_size){
 }
 
 
+void bitArray_setbit(char*array, long DNA_Number){
+    //CHAR_BIT is 8 in our OS
+    
+    int index = (int)(DNA_Number / CHAR_BIT);
+    
+    int off_set = (int)(DNA_Number % CHAR_BIT);
+    
+    char shift = 0x80 >> off_set;
+    
+    array[index] |= shift;
+    
+}
+
+
 

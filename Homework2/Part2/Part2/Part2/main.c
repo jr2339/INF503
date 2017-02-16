@@ -32,9 +32,21 @@ int main(int argc, char **argv)
     char bitArray[bit_Array_size];
     
     bitArray_init(bitArray, bit_Array_size);
-    /*
+    
     for (int i=0; i<bit_Array_size; i++) {
-        printf("%d in bit array is %c\n",i,bitArray[i]);
-    }*/
+        printf("%d in bit array is %d\n",i,bitArray[i]);
+    }
+    
+    for (int i=0; i<DNA_Sequence_Number_Size; i++) {
+        bitArray_setbit(bitArray, DNA_Sequence_Number[i]);
+    }
+    
+    printf("================After we set bit array value===============\n");
+    for (int i=0; i<bit_Array_size; i++) {
+        
+        printf("%d in bit array is %d\n",i,bitArray[i]);
+    }
+    
+    
     return 0;
 }

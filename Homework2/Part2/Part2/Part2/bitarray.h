@@ -18,7 +18,7 @@
 
 void bitArray_init(char* array,int array_size);
 
-
+void bitArray_setbit(char*array, long DNA_Number);
 
 
 #endif /* bitarray_h */
