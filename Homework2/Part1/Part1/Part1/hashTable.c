@@ -68,7 +68,7 @@ void display(HashTable H){
 
         if (L == NULL) {
             printf("\nData at index %d in Hash Table:\n",i);
-            printf("\nSequence number is NULL\n");
+            printf("\nNo DNA Sequence in this slot\n");
             printf("--------------------------------\n");
         }
         else{

@@ -67,7 +67,7 @@ long* sequence_to_number(){
         }
         
         *(total+i)= coefficent[i][0]*pow(4,15)+coefficent[i][1]*pow(4,14)+coefficent[i][2]*pow(4,13)+coefficent[i][3]*pow(4,11)+coefficent[i][4]*pow(4,10)+coefficent[i][5]*pow(4,9)+coefficent[i][6]*pow(4,8)+coefficent[i][7]*pow(4,7)+coefficent[i][8]*pow(4,6)+coefficent[i][9]*pow(4,5)+coefficent[i][10]*pow(4,4)+coefficent[i][11]*pow(4,3)+coefficent[i][12]*pow(4,2)+coefficent[i][13]*pow(4,1)+coefficent[i][14]*pow(4,1)+coefficent[i][15]*pow(4,0);
-         //printf("===================%ld\n",total[i]);
+         
        
     }
     return total;

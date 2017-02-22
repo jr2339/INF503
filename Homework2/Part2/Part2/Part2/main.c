@@ -45,7 +45,7 @@ int main(int argc, char **argv)
     printf("================After we set bit array value===============\n");
     for (int i=0; i<bit_Array_size; i++) {
         
-        printf("%d in bit array is %d\n",i,((unsigned int)bitArray[i]));
+        printf("%d in bit array is %x\n",i,bitArray[i]);
     }
     
     
