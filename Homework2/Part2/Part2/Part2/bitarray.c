@@ -20,7 +20,7 @@ void bitArray_setbit(char*array, long DNA_Number){
     
     int off_set = (int)(DNA_Number % CHAR_BIT);
     
-    char shift = 0x80 >> off_set;
+    unsigned char shift = 0x80u >> off_set;
     
     array[index] |= shift;
     
