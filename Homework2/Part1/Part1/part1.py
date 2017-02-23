@@ -10,6 +10,6 @@ hash_table = {}
 
 for i in range(100):
     sequence = get_sequence(16)
-    hash_table[hash(sequence)] = sequence
+    hash_table[sequence] = sequence
 
 print(hash_table)
