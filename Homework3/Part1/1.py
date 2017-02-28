@@ -1,4 +1,6 @@
-import random #to generate random int
+import random
+import numpy
+#to generate random int
 
 #assume p =0.005 is the probability of success
 
@@ -37,4 +39,8 @@ data = count()
 
 data = data[5:995]
 print(data)
+
+average =numpy.mean(data)
+
+print(average)
 
