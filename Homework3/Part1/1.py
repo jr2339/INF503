@@ -1,7 +1,6 @@
 import random #to generate random int
 
 #assume p =0.005 is the probability of success
-p = 0.005
 
 
 #What is the average number of failures until the first success?
