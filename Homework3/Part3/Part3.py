@@ -10,7 +10,7 @@ AGTTGTTAGTCTACGTGGACCGACAAAGACAGATTCTTTGAGGGAGCTAAGCTCAACGTAGTTCTAACAGTTTTTTAATT
 def sequence():
     Fragments = []
     The_Last_Possible_Start_Point = len(G) - 100
-    for i in range(100000):
+    for i in range(10000):
         random_number = random.randint(0, The_Last_Possible_Start_Point)
         temp = G[random_number:random_number + 99]
         Fragments.append(temp)
@@ -42,21 +42,26 @@ print(average_unique)
 
 #==========================================Part B=================================================
 def with_1_percent_error_sequence():
-    Error_Sequence = sequence()
-    for s in Error_Sequence:
-        check = random.randint(1, 100)
-        if check == 1:
-            total_rand_error = random.randint(0,99)
-            index_rand_error = random.sample(range(0, 100), total_rand_error)
-            for index in index_rand_error:
-                if s[index] == 'A':
-                    s[index] = random.choice("GCT")
-                elif s[index] == 'C':
-                    s[index] = random.choice("AGT")
-                elif s[index] == 'G':
-                    s[index] = random.choice("ACT")
+    Sequence = sequence()
+    Error_Sequence =[]
+    for s in Sequence:
+        for i in range(len(s)):
+            check = random.randint(1, 100)
+            if check == 1:
+                if s[i] == 'A':
+                    replace = random.choice("GCT")
+                    s = s[0:i] + replace + s[i:]
+                elif s[i] == 'C':
+                    replace = random.choice("AGT")
+                    s = s[0:i] + replace + s[i:]
+                elif s[i] == 'G':
+                    replace = random.choice("ACT")
+                    s = s[0:i] + replace + s[i:]
                 else:
-                    s[index] = random.choice("ACG")
+                    replace = random.choice("ACG")
+                    s = s[0:i] + replace + s[i:]
+        Error_Sequence.append(s)
+
     return Error_Sequence
 
 
@@ -83,33 +88,38 @@ def with_1_percent_error_count_average_unique():
     return ave
 
 
-with_1_percent_error_average_unique = count_average_unique()
+with_1_percent_error_average_unique = with_1_percent_error_count_average_unique()
 print(with_1_percent_error_average_unique)
 
 #==========================================Part C=================================================
 def with_5_percent_error_sequence():
-    Error_Sequence = sequence()
-    for s in Error_Sequence:
-        check = random.randint(1, 100)
-        if check <= 5:
-            total_rand_error = random.randint(0,99)
-            index_rand_error = random.sample(range(0, 100), total_rand_error)
-            for index in index_rand_error:
-                if s[index] == 'A':
-                    s[index] = random.choice("GCT")
-                elif s[index] == 'C':
-                    s[index] = random.choice("AGT")
-                elif s[index] == 'G':
-                    s[index] = random.choice("ACT")
+    Sequence = sequence()
+    Error_Sequence =[]
+    for s in Sequence:
+        for i in range(len(s)):
+            check = random.randint(1, 100)
+            if check <= 5:
+                if s[i] == 'A':
+                    replace = random.choice("GCT")
+                    s = s[0:i] + replace + s[i:]
+                elif s[i] == 'C':
+                    replace = random.choice("AGT")
+                    s = s[0:i] + replace + s[i:]
+                elif s[i] == 'G':
+                    replace = random.choice("ACT")
+                    s = s[0:i] + replace + s[i:]
                 else:
-                    s[index] = random.choice("ACG")
+                    replace = random.choice("ACG")
+                    s = s[0:i] + replace + s[i:]
+        Error_Sequence.append(s)
+
     return Error_Sequence
 
 
 
 def with_5_percent_error_counter():
     coun = 0
-    Sequence = with_1_percent_error_sequence()
+    Sequence = with_5_percent_error_sequence()
     unique = []
     seen = set()
     for s in Sequence:
@@ -120,7 +130,7 @@ def with_5_percent_error_counter():
     return coun
 
 
-def with_1_percent_error_count_average_unique():
+def with_5_percent_error_count_average_unique():
     sum =0
     for i in range(100):
         uniq = with_5_percent_error_counter()
@@ -129,5 +139,5 @@ def with_1_percent_error_count_average_unique():
     return ave
 
 
-with_5_percent_error_average_unique = count_average_unique()
+with_5_percent_error_average_unique = with_5_percent_error_count_average_unique()
 print(with_5_percent_error_average_unique)
