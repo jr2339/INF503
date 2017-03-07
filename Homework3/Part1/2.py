@@ -21,7 +21,7 @@ def define_success():
 def count():
     counter =[]
 
-    for i in range(1000):
+    for i in range(10000):
         coun =0
         result = define_success()
         for i in range(len(result)):
@@ -33,7 +33,7 @@ def count():
 
 data = count()
 
-data = data[50:950]
+data = data[250:9750]
 print(data)
 average =numpy.mean(data)
 

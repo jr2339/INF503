@@ -10,7 +10,7 @@ AGTTGTTAGTCTACGTGGACCGACAAAGACAGATTCTTTGAGGGAGCTAAGCTCAACGTAGTTCTAACAGTTTTTTAATT
 def sequence():
     Fragments = []
     The_Last_Possible_Start_Point = len(G) - 100
-    for i in range(10000):
+    for i in range(100000):
         random_number = random.randint(0, The_Last_Possible_Start_Point)
         temp = G[random_number:random_number + 99]
         Fragments.append(temp)

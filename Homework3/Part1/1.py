@@ -37,7 +37,7 @@ def count():
 
 data = count()
 
-data = data[5:995]
+data = data[25:975]
 print(data)
 
 average =numpy.mean(data)
