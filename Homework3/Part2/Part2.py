@@ -14,9 +14,9 @@ def define_bacterial():
 def random_select():
     Selected_Bacterial =[]
     Bacterial = define_bacterial()
-    for i in range(1000):
-        random_number = random.randint(0,99999)
-        Selected_Bacterial.append(Bacterial[random_number])
+    unique_random_number = random.sample(range(0,99999),1000) #without replacement
+    for i in unique_random_number:
+        Selected_Bacterial.append(Bacterial[i])
     return Selected_Bacterial
 
 def count():
@@ -34,5 +34,5 @@ def count():
 data = count()
 average =numpy.mean(data)
 print(average)
-data = data[50:950]
+data = data[25:975]
 print(data)
