@@ -1,3 +1,4 @@
+import random
 #define the EACH CEll for the Matrix
 #Each Cell has value and diection to next Cell
 class Matrix_Component:
@@ -17,8 +18,8 @@ def nw(Seq1,Seq2,GAP_Penalty,Match_Score,Mis_Match):
     # matrix = np.zeros([len(seq2)+1, len(seq1)+1])
 
     Matrix = [[Matrix_Component(0,-1) for i in range(len(Seq1)+1)] for j in range(len(Seq2)+1)]
-    print('rows:' + str(len(Matrix)))
-    print('cols:' + str(len(Matrix[0])))
+    #print('rows:' + str(len(Matrix)))
+    #print('cols:' + str(len(Matrix[0])))
 
     #initialize first row and column with multiples of gap penalty
     for i in range(0,len(Seq1)+1):
@@ -111,10 +112,39 @@ def Print_Align(Matrix, Seq1, Seq2):
     for i in range(len(Aligns)):
         print(Aligns[i])
 
+def get_sequence(length):
+    DNA_Sequence = ""
+    for i in range(length):
+        DNA_Sequence += random.choice("AGCT")
+    return DNA_Sequence
 
-
-
-Matrix = nw('ACTCG', 'ACAGTAG', -1, 1, 0)
-print_Matrix(Matrix)
-
+#This is the Part A in our homework
+Matrix = nw('ACTCG', 'ACAGTAG', -3, 5, -1)
 Print_Align(Matrix, 'ACTCG', 'ACAGTAG')
+print("\n")
+#Now, Generate 1K, 10K, 100K, and 1M (million) random genomic sequences (100nt) to use as targets for alignment
+# and 1 sequence to use as a query.
+#================================================1k,1k================================================
+Sequence_A = get_sequence(1000)
+Sequence_B = get_sequence(1000)
+Sequence_C = get_sequence(10000)
+Sequence_D = get_sequence(100000)
+Sequence_E = get_sequence(1000000)
+Matrix = nw(Sequence_A,Sequence_B, -3, 5, -1)
+Print_Align(Matrix, Sequence_A, Sequence_B)
+print("\n")
+
+#================================================1k,10k================================================
+Matrix = nw(Sequence_A,Sequence_C, -3, 5, -1)
+Print_Align(Matrix, Sequence_A, Sequence_C)
+print("\n")
+
+#================================================1k,10k================================================
+Matrix = nw(Sequence_D,Sequence_C, -3, 5, -1)
+Print_Align(Matrix, Sequence_D, Sequence_C)
+print("\n")
+
+#================================================10,100k================================================
+Matrix = nw(Sequence_D,Sequence_E, -3, 5, -1)
+Print_Align(Matrix, Sequence_D, Sequence_E)
+print("\n")
