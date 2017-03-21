@@ -1,3 +1,6 @@
+import random
+import time
+
 #Initialize The Matrix
 class Diection():
     END = 0
@@ -55,8 +58,8 @@ def print_Align(Align1, Align2,GAP_Penalty,Match_Score,Mis_Match):
 
     identity = float(identity) / (100*len(Align1))
 
-    print('Identify=',"%3.3f" % identity,'percent')
-    print('Score =', score)
+    #print('Identify=',"%3.3f" % identity,'percent')
+    #print('Score =', score)
     print Align1
     print symbol
     print Align2
@@ -114,7 +117,7 @@ def Smith_Waterman(Seq1,Seq2,GAP_Penalty,Match_Score,Mis_Match):
             j -= 1
 
         elif Trace[i][j] == 2:
-            Align1 += '-'
+            Align1 += '_'
             Align2 += Seq2[j-1]
             j -= 1
 
@@ -124,4 +127,22 @@ def Smith_Waterman(Seq1,Seq2,GAP_Penalty,Match_Score,Mis_Match):
             i -= 1
     print_Align(Align1, Align2,GAP_Penalty,Match_Score,Mis_Match)
 
+def get_sequence(length):
+    DNA_Sequence = ""
+    for i in range(length):
+        DNA_Sequence += random.choice("AGCT")
+    return DNA_Sequence
+
+
+Sequence_A = get_sequence(1000)
+Sequence_B = get_sequence(10000)
+Sequence_C = get_sequence(10000)
+Sequence_D = get_sequence(100000)
+Sequence_E = get_sequence(1000000)
+
 Smith_Waterman('GATTA','GCTA',-1,5,-1)
+
+#start_time = time.time()
+#Smith_Waterman(Sequence_C,Sequence_D,-1,5,-1)
+
+#print("--- %s seconds ---" % (time.time() - start_time))
