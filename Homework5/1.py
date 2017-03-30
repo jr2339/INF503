@@ -14,6 +14,7 @@ def Simulation(length,size):
             Original_Sequence += random.choice("ACGT")
 
         # calculate the 1% error
+        """
         success = []
         for i in range(length):
             random_number = random.randint(1, 100)
@@ -21,6 +22,17 @@ def Simulation(length,size):
                 success.append(False)
             else:
                 success.append(True)
+        """
+
+        #calculate the 5% error
+        success = []
+        for i in range(length):
+            random_number = random.randint(1, 100)
+            if random_number <=5:
+                success.append(False)
+            else:
+                success.append(True)
+
 
         # calculate the error Sequence
         Finial_Squence = ""
