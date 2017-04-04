@@ -22,8 +22,8 @@ def Simulation(length,size):
                 success.append(False)
             else:
                 success.append(True)
-        """
 
+        """
         #calculate the 5% error
         success = []
         for i in range(length):
@@ -55,6 +55,7 @@ def Simulation(length,size):
                 coun = coun + 1
 
         counter.append(coun)
+    print(counter)
     average = numpy.mean(counter)
     return average
 

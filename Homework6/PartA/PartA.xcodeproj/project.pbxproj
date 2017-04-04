@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F66C7FC31E90AAA2006D0685 /* Trie.c in Sources */ = {isa = PBXBuildFile; fileRef = F66C7FC11E90AAA2006D0685 /* Trie.c */; };
+		F66C7FC61E90AF1E006D0685 /* Genome.c in Sources */ = {isa = PBXBuildFile; fileRef = F66C7FC41E90AF1E006D0685 /* Genome.c */; };
 		F6AA214E1E8CBD5600303C65 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F6AA214D1E8CBD5600303C65 /* main.c */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F66C7FC11E90AAA2006D0685 /* Trie.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Trie.c; sourceTree = "<group>"; };
+		F66C7FC21E90AAA2006D0685 /* Trie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trie.h; sourceTree = "<group>"; };
+		F66C7FC41E90AF1E006D0685 /* Genome.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Genome.c; sourceTree = "<group>"; };
+		F66C7FC51E90AF1E006D0685 /* Genome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genome.h; sourceTree = "<group>"; };
 		F6AA214A1E8CBD5600303C65 /* PartA */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PartA; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6AA214D1E8CBD5600303C65 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				F6AA214D1E8CBD5600303C65 /* main.c */,
+				F66C7FC11E90AAA2006D0685 /* Trie.c */,
+				F66C7FC21E90AAA2006D0685 /* Trie.h */,
+				F66C7FC41E90AF1E006D0685 /* Genome.c */,
+				F66C7FC51E90AF1E006D0685 /* Genome.h */,
 			);
 			path = PartA;
 			sourceTree = "<group>";
@@ -120,6 +130,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6AA214E1E8CBD5600303C65 /* main.c in Sources */,
+				F66C7FC31E90AAA2006D0685 /* Trie.c in Sources */,
+				F66C7FC61E90AF1E006D0685 /* Genome.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +258,7 @@
 				F6AA21531E8CBD5600303C65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

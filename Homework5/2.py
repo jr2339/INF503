@@ -16,10 +16,11 @@ def delete_all_space():
 
     for i in range(len(content)):
         DNA_Sequence += content[i]
-
+    print(DNA_Sequence)
+    print(len(DNA_Sequence))
     return DNA_Sequence
-
-
+delete_all_space()
+"""
 def get_sequence():
     DNA_Dictionary = dict()
     Original_Sequence = delete_all_space()
@@ -252,7 +253,7 @@ def test():
 
 test()
 
-
+"""
 
 
 
