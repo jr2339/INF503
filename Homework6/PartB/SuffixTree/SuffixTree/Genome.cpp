@@ -2,7 +2,7 @@
 //  Genome.cpp
 //  SuffixTree
 //
-//  Created by jr2339 on 4/6/17.
+//  Created by jr2339 on 4/7/17.
 //  Copyright © 2017 jr2339. All rights reserved.
 //
 
@@ -25,7 +25,7 @@ char* get_sequence(int size,const char* filename){
     
     fseek(fp,0,SEEK_END);
     long fsize = ftell(fp);
-    printf("The size is %lu\n", fsize);
+    //printf("The size is %lu\n", fsize);
     fseek(fp, 0, SEEK_SET);
     char* original = (char*)malloc(sizeof(char)*(fsize));
     
@@ -39,24 +39,14 @@ char* get_sequence(int size,const char* filename){
         
     }
     
-    /*
-    char** sequence = (char**)malloc(number*sizeof(char*));
-    for (int i=0; i<number; i++) {
-        sequence[i] = (char*)malloc(size*sizeof(char));
-        rand_number = rand() % (fsize-size*5);
-        for (int j=0; j<size; j++) {
-            *(sequence[i]+j)=original[rand_number+j];
-            
-        }
-        printf("the random is %d, this is line %d ------------------>%s\n",rand_number,i+1,sequence[i]);
-    }
-    */
+    
     char* sequence = (char*)malloc(size*sizeof(char));
     for (int i=0; i<size; i++) {
-        //*(sequence[i]+j)=original[rand_number+j];
+        
         rand_number = rand() % (fsize-size);
         sequence[i] = original[rand_number+i];
         
     }
     return sequence;
 }
+

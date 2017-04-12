@@ -52,6 +52,7 @@ class SuffixTrie
          */
     
         void build_suffix_trie(string s){
+            int total_node =0;
             unsigned long len = s.length();
             if (len <= 1) {
                 cout <<"DNA Sequence is Empty\n";
@@ -79,6 +80,7 @@ class SuffixTrie
                     }
                     
                     pre = new_node;
+                    ++total_node;
                     current = current->get_suffix_link();
                 }
                 
@@ -94,6 +96,7 @@ class SuffixTrie
                     this->longest = this->longest->get_child(s_i);
                 }
             }
+            cout<<"The total node is: "<<total_node<<endl;
         }
     
     
@@ -221,6 +224,15 @@ class SuffixTrie
 
     
 };
+
+void output(SuffixNode* node, string last ="");
+void output_suffix(SuffixNode* longest);
+void test_substring(SuffixTrie* trie, string s, string q);
+void test_suffix(SuffixTrie* trie, string s, string q);
+void test_occurrence(SuffixTrie* trie, string s, string q);
+void test_longest_repeat(SuffixTrie* trie, string s);
+void test_lexico_first_suffix(SuffixTrie* trie, string s);
+
 
 
 

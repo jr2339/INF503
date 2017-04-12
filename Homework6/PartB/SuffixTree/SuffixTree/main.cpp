@@ -2,10 +2,9 @@
 //  main.cpp
 //  SuffixTree
 //
-//  Created by jr2339 on 4/5/17.
+//  Created by jr2339 on 4/7/17.
 //  Copyright © 2017 jr2339. All rights reserved.
 //
-
 
 #include "SuffixTree.h"
 #include "Genome.hpp"
@@ -28,41 +27,28 @@ int main(int argc, const char * argv[]){
     const char* input = argv[2];
     
     if (input == NULL) {
-        fprintf(stderr, "Error: main: Failed to open input file '%s'\n", argv[3]);
+        fprintf(stderr, "Error: main: Failed to open input file '%s'\n", argv[2]);
         exit(1);
     }
     
-    /*
-    char** Sequence;
-    Sequence = get_sequence(number, size,input);
-    char* DNA = (char*)malloc(number*size*sizeof(char));
-    for (int i=0; i<number; i++) {
-        
-        for (int j=0; j<size; j++) {
-            DNA[i*size+j] = *(Sequence[i]+j);
-        }
-    }
-    printf("DNA Sequence is %s\n",DNA);
-
-    SuffixTree tree(DNA);
-    for (int i=0; i<number; i++) {
-        vector<int> li = tree.getIndexes(Sequence[i]);
-        if (li.size() !=0) {
-            cout << Sequence[i] << ": ";
-            for (int j=0; j<li.size(); ++j) {
-                cout <<li[j] << " ";
-            }
-            cout << endl;
-        }
-        else{
-            cout << Sequence[i] << ": can't find it" <<endl;
-        }
-    }*/
+    
     
     char* DNA = (char*)malloc(size*sizeof(char));
     DNA = get_sequence(size,input);
     cout <<"DNA Sequence is:"<< DNA <<endl;
+    SuffixTree tree(DNA);
+    string stringList= DNA;
+    
+        
+        vector<int> li = tree.getIndexes(stringList);
+        if (li.size() != 0) {
+            cout << stringList << "  ";
+            cout << li[1]<< " ";
+            cout << endl;
+        }
+    
+    
+    
     return 0;
 }
-
 

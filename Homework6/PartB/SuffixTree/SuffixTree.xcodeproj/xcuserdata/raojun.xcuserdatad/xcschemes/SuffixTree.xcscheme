@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F6738A651E960E6700ECC0C7"
+               BlueprintIdentifier = "F65B44591E9807F200C40DF7"
                BuildableName = "SuffixTree"
                BlueprintName = "SuffixTree"
                ReferencedContainer = "container:SuffixTree.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F6738A651E960E6700ECC0C7"
+            BlueprintIdentifier = "F65B44591E9807F200C40DF7"
             BuildableName = "SuffixTree"
             BlueprintName = "SuffixTree"
             ReferencedContainer = "container:SuffixTree.xcodeproj">
@@ -55,18 +55,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F6738A651E960E6700ECC0C7"
+            BlueprintIdentifier = "F65B44591E9807F200C40DF7"
             BuildableName = "SuffixTree"
             BlueprintName = "SuffixTree"
             ReferencedContainer = "container:SuffixTree.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "3 6 DENV2.txt"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F6738A651E960E6700ECC0C7"
+            BlueprintIdentifier = "F65B44591E9807F200C40DF7"
             BuildableName = "SuffixTree"
             BlueprintName = "SuffixTree"
             ReferencedContainer = "container:SuffixTree.xcodeproj">

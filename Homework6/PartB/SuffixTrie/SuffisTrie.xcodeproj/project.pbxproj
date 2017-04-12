@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F6362ADB1E94E71100CD79F0 /* SuffixTrie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6362AD91E94E71100CD79F0 /* SuffixTrie.cpp */; };
+		F65B446A1E981AB600C40DF7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65B44691E981AB600C40DF7 /* main.cpp */; };
+		F65B446D1E98373E00C40DF7 /* Genome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65B446B1E98373E00C40DF7 /* Genome.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +29,9 @@
 		F6362AD81E94A8E500CD79F0 /* SuffixNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuffixNode.h; sourceTree = "<group>"; };
 		F6362AD91E94E71100CD79F0 /* SuffixTrie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SuffixTrie.cpp; sourceTree = "<group>"; };
 		F6362ADA1E94E71100CD79F0 /* SuffixTrie.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SuffixTrie.hpp; sourceTree = "<group>"; };
+		F65B44691E981AB600C40DF7 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F65B446B1E98373E00C40DF7 /* Genome.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Genome.cpp; sourceTree = "<group>"; };
+		F65B446C1E98373E00C40DF7 /* Genome.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Genome.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,9 @@
 				F6362AD81E94A8E500CD79F0 /* SuffixNode.h */,
 				F6362AD91E94E71100CD79F0 /* SuffixTrie.cpp */,
 				F6362ADA1E94E71100CD79F0 /* SuffixTrie.hpp */,
+				F65B44691E981AB600C40DF7 /* main.cpp */,
+				F65B446B1E98373E00C40DF7 /* Genome.cpp */,
+				F65B446C1E98373E00C40DF7 /* Genome.hpp */,
 			);
 			path = SuffisTrie;
 			sourceTree = "<group>";
@@ -123,6 +131,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65B446A1E981AB600C40DF7 /* main.cpp in Sources */,
+				F65B446D1E98373E00C40DF7 /* Genome.cpp in Sources */,
 				F6362ADB1E94E71100CD79F0 /* SuffixTrie.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

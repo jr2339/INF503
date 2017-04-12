@@ -1,6 +1,6 @@
 //
 //  Genome.hpp
-//  SuffixTree
+//  SuffisTrie
 //
 //  Created by jr2339 on 4/7/17.
 //  Copyright © 2017 jr2339. All rights reserved.

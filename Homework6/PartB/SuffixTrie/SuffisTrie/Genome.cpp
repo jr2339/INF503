@@ -1,24 +1,22 @@
 //
-//  Genome.c
-//  PartA
+//  Genome.cpp
+//  SuffisTrie
 //
-//  Created by jr2339 on 4/1/17.
+//  Created by jr2339 on 4/7/17.
 //  Copyright © 2017 jr2339. All rights reserved.
 //
 
-#include "Genome.h"
-//number means the # of sequence we want to generate
+#include "Genome.hpp"
 
-
-char** get_sequence(int number, int size,const char* filename){
+char* get_sequence(int size,const char* filename){
     
     time_t t;
     srand((unsigned)time(&t));
     int rand_number;
     
-   
-     FILE *fp = fopen(filename, "r");
-   
+    
+    FILE *fp = fopen(filename, "r");
+    
     if (!fp) {
         fprintf(stderr, "Error: Could not open file\n");
         exit(1);
@@ -38,21 +36,19 @@ char** get_sequence(int number, int size,const char* filename){
             original[count] = c;
             count = count + 1;
         }
-
+        
     }
     
-   
-    char** sequence = (char**)malloc(number*sizeof(char*));
-    for (int i=0; i<number; i++) {
-        sequence[i] = (char*)malloc(size*sizeof(char));
-        rand_number = rand() % (fsize-size*5);
-        for (int j=0; j<size; j++) {
-            *(sequence[i]+j)=original[rand_number+j];
-            
+    
+    char* sequence = (char*)malloc(size*sizeof(char));
+    for (int i=0; i<size+1; i++) {
+        
+        rand_number = rand() % (fsize-size);
+        sequence[i] = original[rand_number+i];
+        if (i == size) {
+            sequence[size] = '$';
         }
-        //printf("the random is %d, this is line %d ------------------>%s\n",rand_number,i+1,sequence[i]);
     }
-
     return sequence;
 }
 

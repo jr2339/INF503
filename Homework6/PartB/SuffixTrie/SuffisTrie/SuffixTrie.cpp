@@ -13,7 +13,8 @@
 * output each node info to check correctness
 */
 
-void output(SuffixNode* node, string last =""){
+void output(SuffixNode* node, string last){
+    last = "";
     map<string, SuffixNode*> m = node->get_children();
     string children = "";
     
@@ -102,29 +103,7 @@ void test_lexico_first_suffix(SuffixTrie* trie, string s)
 
 
 
-int main(int argc, char *argv[])
-{
-    string s = argv[1];
-    string q = argv[2];
-    
-    SuffixTrie* trie = new SuffixTrie();
-    trie->build_suffix_trie(s+SENTINEL);
-    
-    SuffixNode* root = trie->get_trie_root();
-    SuffixNode* longest = trie->get_deepest_leaf();
-    
-    cout << "print trie stucture\n";
-    output(root);
-    cout << "print suffix link\n";
-    output_suffix(longest);
-    
-    // test basic applications
-    test_substring(trie, s, q);
-    test_suffix(trie, s, q);
-    test_occurrence(trie, s, q);
-    test_longest_repeat(trie, s);
-    test_lexico_first_suffix(trie, s);
-}
+
 
 
 

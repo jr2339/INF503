@@ -49,9 +49,10 @@ int main(int argc, const char * argv[]) {
     
    
     for (int i=0; i<number; i++) {
-        printf("%d we will insert------------------->%s\n",i+1,Sequence[i]);
+        //printf("%d we will insert------------------->%s\n",i+1,Sequence[i]);
         insert(root, Sequence[i],size+1);
-    }
+        printf("%s ---> %s\n", Sequence[i], Sequence[search(root, Sequence[i])]);
+        }
    
     return 0;
 }
