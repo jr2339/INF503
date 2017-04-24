@@ -12,8 +12,8 @@ def flip_matrix(matrix):
             matrix[j][i] = matrix[i][j]
 
 
-# Assumes a queue where each entry is of the format [([Strain1], 3), ([Strain2, Strain4], 4), ...] where each node is a
-# tuple with a list of children and a distance value.
+# Assumes a queue where each entry is of the format [([Strain1], 3), ([Strain2, Strain4], 4), ...]
+# where each node is a tuple with a list of children and a distance value.
 # This works by the first entry always being the very last operation and working in reverse.
 # Initially it starts with a newick format of n children, then each subsequence gets replaced by later, more specific,
 # entries.
@@ -42,7 +42,7 @@ def generate_newick(queue):
             # Replace a list of strains in the format: (A:3.0, B, C:2.5, D:5) where :number is optional
             # The last entry must end with a ) or , to avoid duplicate matches, such as:
             # ((Strain_1, Strain_2):5, Strain10:5); where otherwise Strain_1 would match twice,
-            newick = re.sub(r"(:\d+.?\d*)?,".join(node[0]) + r"(:\d+.?\d*)?(?=[\),])", replace, newick)
+            #newick = re.sub(r"(:\d+.?\d*)?,".join(node[0]) + r"(:\d+.?\d*)?(?=[\),])", replace, newick)
 
     return newick
 
@@ -59,7 +59,7 @@ def upgma_method(distance_matrix, strains):
     while len(current_matrix) > 2:
         # Assume a closest distance of size positive infinity.
         # closest_index is a coordinate tuple like (i, j) or (row, col)
-        closest, closest_index = math.inf, (0, 0)
+        closest, closest_index = float('inf'), (0, 0)
         # Search through each cell checking the value beats out the past mininum.
         for i in range(1, len(current_matrix)):
             for j in range(i):
@@ -125,7 +125,7 @@ def neighbor_joining_method(distance_matrix, strains):
         # Find the minimum of temp matrix
         # Assume a closest distance of size positive infinity.
         # closest_index is a coordinate tuple like (i, j) or (row, col)
-        closest, closest_index = math.inf, (0, 0)
+        closest, closest_index = float('inf'), (0, 0)
         # Search through each cell checking the value beats out the past mininum.
         for i in range(1, len(temp_matrix)):
             for j in range(i):
@@ -216,7 +216,7 @@ if __name__ == '__main__':
         f = open(path + '.upgma.nwk', 'w')
         f.write(newick)
         f.close()
-
+        print(" \n")
         newick = neighbor_joining_method(matrix, strains)
         f = open(path + '.neigh.nwk', 'w')
         f.write(newick)
