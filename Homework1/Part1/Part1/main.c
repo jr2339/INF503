@@ -166,16 +166,6 @@ void sort_file(const char* filename,char* buffer,int column,int row){
 
 
 
-
-
-
-
-
-
-
-
-
-
 int main(int argc, const char * argv[]) {
     // insert code here...
     if (argc < 2) {
