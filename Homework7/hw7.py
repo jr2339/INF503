@@ -199,7 +199,7 @@ def from_csv_to_distance_matrix(path, is_full=True):
     return strains, matrix
 
 if __name__ == '__main__':
-    files = ['HW6_distance1.csv', 'HW6_distance2.csv']
+    files = ['HW7_distance1.csv', 'HW7_distance2.csv']
     for p in files:
         strains, matrix = from_csv_to_distance_matrix(p)
         print(strains)
